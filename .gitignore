@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Xcode build and derived data
+build/
+DerivedData/
+
+# Xcode workspace files
+*.xcworkspace
+*.xcuserstate
+*.xccheckout
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**
+
+# SwiftPM Xcode integration
+/.build
+/Packages
+/*.xcodeproj/project.xcworkspace/
+
+# Other IDEs and temporary files
+.idea/
