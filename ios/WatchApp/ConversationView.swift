@@ -1,41 +1,43 @@
 import SwiftUI
 
-struct Message: Identifiable {
-    let id = UUID()
-    let text: String
-    let isUser: Bool
-}
+/// Top-level view for the watch chat conversation.
+/// Displays a scrollable list of messages and a compose button.
 struct ConversationView: View {
+    /// Sample messages for prototyping; this will later be replaced with a view model.
     @State private var messages: [Message] = [
-        Message(text: "Hi there!", : false),
-        Message(text: "Hello!", isUser: true),
-        Message(text: "How are you?", isUser: false)
+        Message(text: "Hi Mom!", isUser: true),
+        Message(text: "Hi sweetie, how's your day?", isUser: false),
+        Message(text: "Good!", isUser: true)
     ]
 
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             ScrollView {
-                VStack(alignment: leading, spacing: 4) {
-                    ForEach() { message in
-                        MessageRow(message: message)
-}
-                
-                .frame(: .infinity, alignment: .leading)
+                VStack(spacing: 4) {
+                    ForEach(messages) { msg in
+                        MessageRow(message: msg)
+                    }
+                }
             }
-            .padding(.bottom, 8)
+            .padding(.top, 8)
 
-            Button(action: {
-                // Stub: append a new message for testing
-                messages.append(Message(text: "New message", isUser: true))
-            }) {
-                Text("Send message")
+            Button(action: sendSampleMessage) {
+                Text("Send Test Message")
+                    .frame(maxWidth: .infinity)
             }
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
         .navigationTitle("Chat")
+    }
+
+    /// Append a new sample message to demonstrate sending. To be replaced with real send later.
+    private func sendSampleMessage() {
+        messages.append(Message(text: "New message at \(Date().formatted(date: .omitted, time: .shortened))", isUser: true))
     }
 }
 
-#Preview {
-    ConversationView()
+struct ConversationView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConversationView()
+    }
 }
