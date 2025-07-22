@@ -1,0 +1,3 @@
+Please read agent-system/START_HERE_AGENT.md and begin working on GroveChat following the documented system.
+
+Your first task should be to analyze the project structure and understand what this project does, then populate PROJECT_ANALYSIS.md with your findings.
